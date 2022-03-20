@@ -46,6 +46,8 @@ func main() {
 		entryURL := fmt.Sprintf("https://api.dictionaryapi.dev/api/v2/entries/en/%s", word)
 		synURL := fmt.Sprintf("https://api.datamuse.com/words?ml=%s", word)
 		g := new(errgroup.Group)
+		// TODO: Make this a single function call with passed in thing and a function
+		// that sets the appropriate value.
 		g.Go(func() error {
 			resp, err := http.Get(entryURL)
 			if err != nil {
